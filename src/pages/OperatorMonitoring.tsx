@@ -17,7 +17,7 @@ interface Operator {
   id: string;
   name: string;
   email: string;
-  status: "online" | "busy" | "away" | "offline";
+  status: "online" | "break" | "jira" | "offline";
   activeChats: number;
   totalChats: number;
   avgResponseTime: number;
@@ -44,13 +44,13 @@ const OperatorMonitoring = () => {
       id: "2",
       name: "Дмитрий Козлов",
       email: "kozlov@company.com",
-      status: "busy",
-      activeChats: 5,
+      status: "jira",
+      activeChats: 1,
       totalChats: 38,
       avgResponseTime: 3.2,
       satisfactionRate: 95,
       lastActivity: "1 мин назад",
-      workload: 100
+      workload: 30
     },
     {
       id: "3",
@@ -68,7 +68,7 @@ const OperatorMonitoring = () => {
       id: "4",
       name: "Игорь Морозов",
       email: "morozov@company.com",
-      status: "away",
+      status: "break",
       activeChats: 0,
       totalChats: 31,
       avgResponseTime: 4.1,
@@ -91,15 +91,15 @@ const OperatorMonitoring = () => {
   ]);
 
   const statusConfig = {
-    online: { label: "Онлайн", color: "bg-green-500", textColor: "text-green-500" },
-    busy: { label: "Занят", color: "bg-red-500", textColor: "text-red-500" },
-    away: { label: "Отошел", color: "bg-yellow-500", textColor: "text-yellow-500" },
-    offline: { label: "Оффлайн", color: "bg-gray-400", textColor: "text-gray-400" },
+    online: { label: "На линии", color: "bg-green-500", textColor: "text-green-500" },
+    break: { label: "Перерыв", color: "bg-yellow-500", textColor: "text-yellow-500" },
+    jira: { label: "Обработка Jira", color: "bg-blue-500", textColor: "text-blue-500" },
+    offline: { label: "Не в сети", color: "bg-gray-400", textColor: "text-gray-400" },
   };
 
   const stats = {
     total: operators.length,
-    online: operators.filter(o => o.status === "online" || o.status === "busy").length,
+    online: operators.filter(o => o.status === "online" || o.status === "jira").length,
     activeChats: operators.reduce((sum, o) => sum + o.activeChats, 0),
     avgSatisfaction: Math.round(operators.reduce((sum, o) => sum + o.satisfactionRate, 0) / operators.length),
   };
