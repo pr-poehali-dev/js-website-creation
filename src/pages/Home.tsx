@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import { Link } from "react-router-dom";
+import RoleSwitcher from "@/components/RoleSwitcher";
 
 const Home = () => {
   const features = [
@@ -42,7 +43,8 @@ const Home = () => {
             <Icon name="Headphones" size={28} />
             <h1 className="text-2xl font-bold">Служба поддержки</h1>
           </div>
-          <nav className="flex gap-4">
+          <nav className="flex gap-4 items-center">
+            <RoleSwitcher />
             <Button variant="secondary" size="sm" asChild>
               <Link to="/support">Панель оператора</Link>
             </Button>
@@ -70,7 +72,7 @@ const Home = () => {
           </p>
           <div className="flex gap-4 justify-center">
             <Button size="lg" asChild>
-              <Link to="/support">
+              <Link to="/chat">
                 <Icon name="MessageCircle" size={20} className="mr-2" />
                 Начать чат
               </Link>
@@ -124,7 +126,7 @@ const Home = () => {
           </p>
           <div className="flex gap-4 justify-center">
             <Button size="lg" asChild>
-              <Link to="/support">Открыть чат</Link>
+              <Link to="/chat">Открыть чат</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <Link to="/tickets">Создать обращение</Link>
