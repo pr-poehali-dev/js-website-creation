@@ -5,6 +5,7 @@ import Icon from "@/components/ui/icon";
 import TicketList from "@/components/TicketList";
 import ChatWindow from "@/components/ChatWindow";
 import { Card } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 interface Ticket {
   id: string;
@@ -81,8 +82,17 @@ const Index = () => {
               <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse"></div>
               <span>Онлайн</span>
             </div>
-            <Button variant="secondary" size="sm">
-              <Icon name="Settings" size={16} />
+            <Button variant="secondary" size="sm" asChild>
+              <Link to="/admin/monitoring">
+                <Icon name="Users" size={16} className="mr-2" />
+                Мониторинг
+              </Link>
+            </Button>
+            <Button variant="secondary" size="sm" asChild>
+              <Link to="/admin/roles">
+                <Icon name="Shield" size={16} className="mr-2" />
+                Роли
+              </Link>
             </Button>
           </div>
         </div>

@@ -44,6 +44,9 @@ const Home = () => {
           </div>
           <nav className="flex gap-4">
             <Button variant="secondary" size="sm" asChild>
+              <Link to="/support">Панель оператора</Link>
+            </Button>
+            <Button variant="secondary" size="sm" asChild>
               <Link to="/knowledge-base">База знаний</Link>
             </Button>
             <Button variant="secondary" size="sm" asChild>
